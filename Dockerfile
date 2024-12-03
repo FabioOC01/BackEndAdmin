@@ -12,7 +12,7 @@ COPY target/*.jar /app/BackEndAdmin.jar
 EXPOSE 8080
 
 # Define el comando para ejecutar la aplicación cuando se inicie el contenedor
-ENTRYPOINT ["java", "-jar", "/app/mi-aplicacion.jar"]
+ENTRYPOINT ["java", "-jar", "/app/BackEndAdmin.jar"]
 
 ENV DATABASE_URL=postgresql://root:bZH98yPSSyWP3gNXXxpMoWigwmRtAs8O@dpg-ct782sjtq21c73bkdcf0-a.oregon-postgres.render.com/db_integrador
 ENV DATABASE_USERNAME=root
