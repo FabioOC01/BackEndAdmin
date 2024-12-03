@@ -1,18 +1,18 @@
-# Usa una imagen base de OpenJDK 17 (puedes usar otra versión si es necesario)
+# Usa una imagen base de OpenJDK 17
 FROM openjdk:17-jdk-slim
 
 # Establece el directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Copia el archivo JAR de tu proyecto al contenedor
-# Asegúrate de que el archivo JAR exista en el directorio 'target' después de compilar con Maven
-COPY target/*.jar /app/BackEndAdmin.jar
+# Copia el archivo JAR generado por tu proyecto al contenedor
+COPY target/BackEndAdmin-0.0.1-SNAPSHOT.jar /app/BackEndAdmin.jar
 
-# Expone el puerto que usará la aplicación (por defecto Spring Boot usa el puerto 8080)
+# Expone el puerto que usará la aplicación (Spring Boot usa 8080 por defecto)
 EXPOSE 8080
 
-# Define el comando para ejecutar la aplicación cuando se inicie el contenedor
+# Define el comando para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "/app/BackEndAdmin.jar"]
+
 
 ENV DATABASE_URL=postgresql://root:bZH98yPSSyWP3gNXXxpMoWigwmRtAs8O@dpg-ct782sjtq21c73bkdcf0-a.oregon-postgres.render.com/db_integrador
 ENV DATABASE_USERNAME=root
